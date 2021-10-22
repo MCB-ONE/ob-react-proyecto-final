@@ -24,7 +24,7 @@ const TaskListComponent = () => {
         console.log('Task State has been modified');
         setTimeout(() => {
             setLoading(false);
-        }, 2000);
+        }, 3000);
         return () => {
             console.log('TaskList component is going to unmount...')
         }
@@ -117,7 +117,13 @@ const TaskListComponent = () => {
                     {/* Card Body (content) */}
                     <div className='card-body' data-mdb-perfect-scrollbar='true' style={ {position: 'relative', height: '400px'} }>
                         {/* TODO: Add Loading Spinner */}
-                        {loading ? (<p style={loadingStyle}>Loading tasks...</p>) : tasksTable}
+                        {loading ? (
+                            <div class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                            </div>
+                        ) : tasksTable}
                     </div>
                 </div>
             </div>
